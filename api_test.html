@@ -1,0 +1,30 @@
+<html>
+	<head>
+ 		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+	</head>
+  <body>
+   	<br />
+		<div id="container">
+			<div id="content">
+				{% if api_fail %}
+					<div id="error">
+						API call: {{ api_call }} did not work correctly
+					</div><br />
+					Output: <br /><br />
+					<div id="response">
+						{{ api_read }}						
+					</div>
+				{% else %}
+				<div id="pass">
+					Your API call: {{ api_call }} worked correctly!
+				</div><br />
+					Output: <br />
+					<a href="{{ api_call }}">Formatted output</a> <br /><br />
+					<div id="response" content="text/xml">
+						{{ api_read }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+  </body>
+</html>
